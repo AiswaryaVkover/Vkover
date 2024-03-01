@@ -34,9 +34,7 @@ class ManagerController extends Controller
             'mailid' => 'required|email',
             'mobilenumber' => 'required',
             'firstname' => 'required',
-            'lastname' => 'required',
-            
-            
+            'lastname' => 'required',  
         ]);
     
 
