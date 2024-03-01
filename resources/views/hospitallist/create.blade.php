@@ -3,6 +3,20 @@
 @section('body')
 
 <h3 align="left" class="mt-5">Hospital/Create</h3>
+
+@if ($errors->any())
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+<ul>
+      @foreach ($errors->all() as $error)
+
+    <li>{{ $error }}</li>
+
+            @endforeach
+   </ul>
+            </div>
+            @endif
+
+
 <form action="{{ route('hospital.store') }}" method="POST" id="createForm">
     @csrf
 

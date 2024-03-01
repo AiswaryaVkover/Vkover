@@ -54,19 +54,16 @@ public function leadsForHospital($hospitalId)
             'name' => 'required|string',
             'mobile' => 'required|string',
             'dob' => 'required|date', // Assuming the date format is correct, otherwise adjust accordingly
-            'remark' => 'required|string',
-            'hospitallist_id' => 'required|integer', 
-            'leadstage' => 'required|string',
         ]);
 
         // Create a new lead instance
         $lead = new Lead();
-        $lead->name = $validatedData['name'];
-        $lead->mobile = $validatedData['mobile'];
-        $lead->dob = $validatedData['dob'];
-        $lead->remark = $validatedData['remark'];
-        $lead->hospitallist_id = $validatedData['hospitallist_id'];
-        $lead->leadstage = $validatedData['leadstage'];
+        $lead->name = $request->input('name');
+        $lead->mobile = $request->input('mobile');
+        $lead->dob = $request->input('dob');
+        $lead->remark = !empty($request->input('remark'))? $request->input('remark') :null;
+        $lead->hospitallist_id = !empty($request->input('hospitallist_id'))? $request->input('hospitallist_id') :null;
+        $lead->leadstage = !empty($request->input('leadstage'))? $request->input('leadstage') :null;
 
         // Save the lead to the database
         $lead->save();

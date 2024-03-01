@@ -52,24 +52,20 @@ class hospitalListController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'username' => 'required|string',
+            'username' => 'required|email',
             'hospitalname' => 'required|string',
-            'pan' => 'required|string',
-            'bankname' => 'required|string',
-            'ifsccode' => 'required|string',
-            'accountnumber' => 'required|string',
             'manager_id' => 'required|integer', // Assuming manager_id is an integer
         ]);
 
         // Create a new hospital instance and set its attributes
         $hospital = new Hospitallist();
-        $hospital->username = $validatedData['username'];
-        $hospital->hospitalname = $validatedData['hospitalname'];
-        $hospital->pan = $validatedData['pan'];
-        $hospital->bankname = $validatedData['bankname'];
-        $hospital->ifsccode = $validatedData['ifsccode'];
-        $hospital->accountnumber = $validatedData['accountnumber'];
-        $hospital->manager_id = $validatedData['manager_id'];
+        $hospital->username = $request->input('username');
+        $hospital->hospitalname = $request->input('hospitalname');
+        $hospital->pan = !empty($request->input('pan'))? $request->input('pan') :null;
+        $hospital->bankname = !empty($request->input('bankname'))? $request->input('bankname') :null;
+        $hospital->ifsccode =!empty($request->input('ifsccode'))? $request->input('ifsccode') :null;
+        $hospital->accountnumber = !empty($request->input('accountnumber'))? $request->input('accountnumber') :null;
+        $hospital->manager_id = !empty($request->input('manager_id'))? $request->input('manager_id') :null;
 
         // Save the hospital to the database
         $hospital->save();
