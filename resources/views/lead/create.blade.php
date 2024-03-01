@@ -54,7 +54,7 @@
   <div class="row mb-3">
         <div class="col-md-6">
             <label>DOB</label>
-            <input type="text" name="dob" class="form-control" placeholder=" ">
+            <input type="date" name="dob" class="form-control" placeholder="DD/MM/YYYY">
             <span id="dobError" class="text-danger"></span>
         </div>
         <div class="col-md-6">
