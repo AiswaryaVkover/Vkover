@@ -38,7 +38,7 @@ class ManagerController extends Controller
             
             
         ]);
-       // dd($request->all());
+    
 
         // Create a new Manager instance and store it in the database
         $manager = new Manager();
