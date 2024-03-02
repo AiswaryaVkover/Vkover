@@ -22,9 +22,9 @@ Route::get('/', function () {
 
 Route::resource('/manager', ManagerController::class);
 Route::resource('/hospital', hospitalListController::class);
+Route::resource('/lead', LeadController::class);
 Route::get('/managers/{managerId}/hospitals', [hospitalListController::class, 'createHospitalUnderManager'])->name('hospitallist.create');
 Route::post('/hospitallist', [HospitalListController::class, 'store'])->name('hospitalList.store');
-//Route::get('hospital/{hospitalId}/lead', [LeadController::class, 'createLeadUnderHospital'])->name('lead.create');
 Route::resource('/leads', LeadController::class);
 Route::get('hospital/{hospitalId}/lead', 'App\Http\Controllers\LeadController@createLeadUnderHospital')->name('lead.create');
 Route::post('/leadlist', [LeadController::class, 'store'])->name('lead.store');

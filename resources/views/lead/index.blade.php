@@ -32,6 +32,7 @@
             <th>DOB</th>
             <th>Stage</th>
             <th>created Date</th>
+            <th></th>
             
         </tr>
     </thead>
@@ -45,6 +46,11 @@
                     <td class="align-middle">{{$rs->dob}}</td>
                     <td class="align-middle">{{$rs->leadstage}}</td>
                     <td class="align-middle"> {{ $rs->created_at->format('d/m/Y') }}
+                    <td class="align-middle">
+                    <div>
+                <a href="{{route('lead.show', $rs->id)}}" type="button" class="btn btn-secondary">Details</a>
+                </div>
+                    </td>
                     </td>
                    
                    

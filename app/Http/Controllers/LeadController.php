@@ -77,7 +77,8 @@ public function leadsForHospital($hospitalId)
      */
     public function show(string $id)
     {
-        //
+        $leadshow = Lead::findorFail($id);
+        return view('lead.show', compact('leadshow'));
     }
 
     /**
